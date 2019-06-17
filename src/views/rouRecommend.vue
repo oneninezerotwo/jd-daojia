@@ -1,6 +1,6 @@
 <template>
     <div id="box">
-         <routop/>
+         <!-- <routop/> -->
        推荐
         <!-- <p>123</p>
         <p>456</p>

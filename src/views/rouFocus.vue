@@ -1,7 +1,7 @@
 <template>
 
     <div id="#box">
-        <routop/>
+        <!-- <routop/> -->
         <div style="margin-top:50px">
             life
         </div>

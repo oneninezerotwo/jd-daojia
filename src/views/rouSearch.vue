@@ -4,45 +4,24 @@
     <div class="tab-bar-box">
       <div class="tab-bar">
         <ul class="tab-bar-ul">
-          <li class="tab-bar-li on">
-            <router-link to="/rouSearch">关注</router-link>
+          <li class="tab-bar-li" :class="{'on':index === now}" v-for="(item,index) in tabs" :key="index" @click="getTabsItem(index)">
+            <a v-text="item.name"></a>
           </li>
-
-          <li class="tab-bar-li">
-            <router-link to="/rouCook">食谱</router-link>
-          </li>
-
-          <li class="tab-bar-li">
-            <router-link to="/rouRecommend">推荐</router-link>
-          </li>
-
-          <li class="tab-bar-li">
-            <router-link to="/rouBeauty">时尚美妆</router-link>
-          </li>
-
-          <li class="tab-bar-li">
-            <router-link to="/rouFocus">生活</router-link>
-          </li>
-
-          <!-- <li
-            v-for="(t,index) in tabs"
-            :key="index"
-            @click="hightLight(index)"
-            class="tab-bar-li"
-            :class="tab == index?'on':''"
-            v-text="t.name"
-          ></li>-->
         </ul>
       </div>
     </div>
-    <!--  -->
-    <!-- <div class="tab-content">
-      <keep-alive>
-        <component :is="currView"> </component>
-      </keep-alive>
-    </div>-->
-    <!-- <router-view></router-view> -->
+   
+    
     <div class="tab-content">
+      <fxlist v-show="now ===0" />
+      <rouCook v-show="now ===1"/>
+      <rouRecommend v-show="now ===2"/>
+      <rouBeauty v-show="now ===3"/>
+      <rouFocus v-show="now ===4"/>   
+    </div>
+
+    <!-- <div class="tab-content">
+      
       <div class="panel">
         <div class="tip-wrap">
           <div class="tip-box">
@@ -3293,25 +3272,27 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 // import { Component, Vue } from "vue-property-decorator";
-// import fxlist from "./fxlist.vue";
-// import rouCook from "./rouCook";
-// import rouRecommend from "./rouRecommend";
-// import rouBeauty from "./rouBeauty";
-// import rouFocus from "./rouFocus";
+import fxlist from "./fxlist.vue";
+import rouCook from "./rouCook.vue";
+import rouRecommend from "./rouRecommend.vue";
+import rouBeauty from "./rouBeauty.vue";
+import rouFocus from "./rouFocus.vue";
+import test from './test.vue';
 export default {
-  // components: {
-  //   fxlist,
-  //   rouCook,
-  //   rouRecommend,
-  //   rouBeauty,
-  //   rouFocus
-  // },
+  components: {
+    fxlist,
+    rouCook,
+    rouRecommend,
+    rouBeauty,
+    rouFocus,
+    test,
+  },
   data() {
     return {
       // currView:fxlist,
@@ -3341,7 +3322,7 @@ export default {
           url: "rouFocus"
         }
       ],
-      tab: 0
+      // tab: 0
     };
   },
   created() {
@@ -3373,6 +3354,10 @@ export default {
         this.msg = "登录后可查看关注门店的优惠信息~";
         this.flag = true;
       }
+    },
+    getTabsItem(index){
+      this.now = index;
+
     }
     // change_content(idx) {
     //   // var arr = [];

@@ -1,6 +1,6 @@
 <template>
     <div id="box">
-        <routop/>
+        <!-- <routop/> -->
         beauty
     </div>
 </template>
