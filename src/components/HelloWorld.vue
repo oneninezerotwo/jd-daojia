@@ -7,11 +7,14 @@
       <span class="location-text">番禺区石碁东怡新地(番禺大道北东)</span>
       <span class="location-text-down"></span>
     </a>
-    <i class="index-up-search" style="transform: translate(0px, 0px);"></i>
+    <i class="index-up-search" style="transform: translate(0px, 0px);"
+        :style="bool? 'transform: translate(-35px, 0px)':'transform: translate(0px, 0px)'"
+    ></i>
     <a
       class="index-message-icon"
       href="/html/main.html#message"
       style="transform: translate(0px, 0px);"
+      :style="bool? 'transform: translate(-35px, 0px)':'transform: translate(0px, 0px)'"
     >
       <i class="hideDot"></i>
     </a>
@@ -25,10 +28,49 @@
 // export default class HelloWorld extends Vue {
 //   @Prop() private msg!: string;
 // }
+export default {
+  data(){
+    return{
+        bool:0,
+    }
+  },
+  // created(){
+  //   //  window.onscroll = () => {
+  //   //   if(window.scrollY>=200){
+  //   //     console.log(window.scrollY);
+
+  //   //   }
+  //   // };
+  // },
+  mounted(){
+     window.addEventListener('scroll', this.scroll, true);
+  },
+  methods:{
+     scroll() {
+      if (window.scrollY >= 200) {
+        this.bool = !0;
+        // console.log(window.scrollY);
+      } else {
+        this.bool = 0;
+      }
+    },
+     destroyed() {
+    window.onscroll = null;
+    window.removeEventListener('scroll', this.scroll, false);
+  },
+  }
+}
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+.index-message-icon, .index-up-search {
+    position: absolute;
+    -webkit-transition: all linear;
+    transition: all linear;
+}
 body {
   width: 100vw;
   overflow: hidden;

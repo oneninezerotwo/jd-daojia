@@ -10,9 +10,11 @@ export default new Vuex.Store({
     isShowMmodel: 0,
     isLogin:0,
     isShowDetFoot: true,
+    isShowsearch:0,
     orderList: [], //列表页购物车的空数组
     qty: 0,
     username:localStorage.getItem('username') // 用户名
+    
   },
   // 改变仓库的值
   mutations: {
