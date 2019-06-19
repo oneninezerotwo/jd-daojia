@@ -10,14 +10,14 @@
     <i class="index-up-search" style="transform: translate(0px, 0px);"
         :style="bool? 'transform: translate(-35px, 0px)':'transform: translate(0px, 0px)'"
     ></i>
-    <a
+    <router-link
       class="index-message-icon"
-      href="/html/main.html#message"
+      to="/Search"
       style="transform: translate(0px, 0px);"
       :style="bool? 'transform: translate(-35px, 0px)':'transform: translate(0px, 0px)'"
     >
       <i class="hideDot"></i>
-    </a>
+    </router-link>
   </div>
 </template>
 

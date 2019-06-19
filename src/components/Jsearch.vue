@@ -8,7 +8,7 @@
       href="#search/searchType:all/sourceFrom:channelPage/placeHolder:%25E5%25A4%25A7%25E7%2589%258C%25E7%25A6%258F%25E5%2588%25A9/realSearchWords:%25E9%259B%25B6%25E9%25A3%259F/userAction:"
     >
       <div class="search-show index-search-show showMta" style="opacity: 1;">
-        <span class="search-bar-span">
+        <span class="search-bar-span" @click="goSearch">
           <span class="search-bar-text">大牌福利</span>
         </span>
       </div>
@@ -68,6 +68,39 @@
   </div>
 </template>
 
+<script>
+export default {
+  data(){
+    return{
+      searchList:[],
+    }
+  },
+  created(){
+    this.getSearchList();
+  },
+  methods:{
+    async getSearchList(){
+      const data = await this.$axios(
+        "https://www.easy-mock.com/mock/5cfde625a9dc00683e60f4f6/jdrandom/random1_copy_1560147123287"
+      );
+      // console.log(data);
+      // console.log(this.$route);
+    },
+    goSearch(){
+      this.$router.push({
+      // 路由名称
+        name: 'Search',
+      // 传递参数
+        // params: {
+        //   id: this.id
+        // }
+      })
+    // 路由取值
+    // this.$route.params.id;
+    },
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 * {

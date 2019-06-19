@@ -309,7 +309,7 @@ export default Vue.extend({
           return false;
         } else {
           this.isShowError = false;
-          // localStorage.setItem("username", this.tel);
+          localStorage.setItem("username", this.tel);
           this.isShowcode=true;
           // this.$router.push({ path: "login" });
           // console.log(this);
@@ -415,7 +415,7 @@ export default Vue.extend({
           // return false
         } else {
           this.isShowError = false
-          localStorage.setItem("username", this.tel);
+          // localStorage.setItem("username", this.tel);
           localStorage.setItem("password", this.psw);
           this.$router.push({ path: "login" });
         }

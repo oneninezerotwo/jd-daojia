@@ -25,6 +25,14 @@ export default new Router({
       component: () => import(/* webpackChunkName: "rouSearch" */ './views/rouSearch.vue'),
     },
     {
+      path: '/Search',
+      name: 'Search',
+      // route level code-splitting
+      // this generates a separate chunk (rouSearch.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "rouSearch" */ './views/Search.vue'),
+    },
+    {
       path: '/rouCart',
       name: 'rouCart',
       // route level code-splitting
@@ -48,46 +56,7 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "rouMine" */ './views/rouMine.vue'),
     },
-    // {
-    //   path: '/rouFocus',
-    //   name: 'rouFocus',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (rouFocus.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "rouFocus" */ './views/rouFocus.vue'),
-    // },
-    // {
-    //   path: '/rouSearch2',
-    //   name: 'rouSearch2',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (rouSearch2.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "rouSearch2" */ './views/rouSearch2.vue'),
-    // },
-    // {
-    //   path: '/rouCook',
-    //   name: 'rouCook',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (rouCook.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "rouCook" */ './views/rouCook.vue'),
-    // },
-    // {
-    //   path: '/rouRecommend',
-    //   name: 'rouRecommend',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (rouRecommend.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "rouRecommend" */ './views/rouRecommend.vue'),
-    // },
-    // {
-    //   path: '/rouBeauty',
-    //   name: 'rouBeauty',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (rouRecommend.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "rouRecommend" */ './views/rouBeauty.vue'),
-    // },
+  
     {
       path: '/login',
       name: 'login',
